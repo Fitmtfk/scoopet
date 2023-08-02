@@ -1,9 +1,9 @@
 # 🍨 Scoopet 🍨
 
-[![Excavator](https://github.com/ivaquero/scoopet/actions/workflows/schedule.yml/badge.svg)](https://github.com/ivaquero/scoopet/actions/workflows/schedule.yml)
-[![license](https://img.shields.io/github/license/ivaquero/scoopet)](https://github.com/ivaquero/scoopet/blob/master/LICENSE)
-[![code size](https://img.shields.io/github/languages/code-size/ivaquero/scoopet.svg)](https://img.shields.io/github/languages/code-size/ivaquero/scoopet.svg)
-[![repo size](https://img.shields.io/github/repo-size/ivaquero/scoopet.svg)](https://img.shields.io/github/repo-size/ivaquero/scoopet.svg)
+[![Excavator](https://github.com/Fitmtfk/scoopet/actions/workflows/schedule.yml/badge.svg)](https://github.com/Fitmtfk/scoopet/actions/workflows/schedule.yml)
+[![license](https://img.shields.io/github/license/Fitmtfk/scoopet)](https://github.com/Fitmtfk/scoopet/blob/master/LICENSE)
+[![code size](https://img.shields.io/github/languages/code-size/Fitmtfk/scoopet.svg)](https://img.shields.io/github/languages/code-size/Fitmtfk/scoopet.svg)
+[![repo size](https://img.shields.io/github/repo-size/Fitmtfk/scoopet.svg)](https://img.shields.io/github/repo-size/Fitmtfk/scoopet.svg)
 
 一个用于 Windows 最佳包管理器 [Scoop](https://github.com/lukesampson/scoop)的脚本仓库：持续助力科研
 
@@ -17,7 +17,7 @@
 对于熟悉 Scoop 的用户：
 
 ```powershell
-scoop bucket add scoopet https://github.com/ivaquero/scoopet
+scoop bucket add scoopet https://github.com/Fitmtfk/scoopet
 ```
 
 # :running: 开始
@@ -68,7 +68,7 @@ scoop install git
 ### :airplane: 步骤 3：添加本仓库并更新，么么哒~ :kiss
 
 ```powershell
-scoop bucket add scoopet https://github.com/ivaquero/scoopet
+scoop bucket add scoopet https://github.com/Fitmtfk/scoopet
 scoop update
 ```
 
