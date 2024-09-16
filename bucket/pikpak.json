@@ -1,10 +1,13 @@
 {
-    "version": "1.5.2.2518",
+    "version": "2.5.6",
     "description": "PikPak is a private cloud drive that can save your favorite files at high speed.",
     "homepage": "https://mypikpak.com/",
-    "license": "Proprietary",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://mypikpak.com/policy/user-agreement"
+    },
     "url": "https://static.mypikpak.com/desktop/official_PikPak.exe#/dl.7z",
-    "hash": "5031b388f6ab0b19773d57feeb596a2f844411e6d2f1ca55950fd6bdd864eed0",
+    "hash": "b3fe87cd1cced9c0f63cb0a43d75c5cb6833c6bcc9b27bb92ca91ae907666f38",
     "pre_install": [
         "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\"",
         "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse"
@@ -29,11 +32,23 @@
             "$runtimeCache = \"$env:APPDATA\\PikPak\"",
             "$runtimeCachePersist = \"$persist_dir\\Cache\"",
             "if (!(Test-Path $runtimeCachePersist)) {",
-            "    Move-Item $runtimeCache $runtimeCachePersist -Force",
+            "    Move-Item $runtimeCache $runtimeCachePersist -Force -ErrorAction SilentlyContinue",
             "} else {",
             "    Remove-Item $runtimeCache -Force -Recurse -ErrorAction SilentlyContinue",
             "}"
         ]
     },
-    "shortcuts": [["PikPak.exe", "PikPak"]]
+    "shortcuts": [
+        [
+            "PikPak.exe",
+            "PikPak"
+        ]
+    ],
+    "checkver": {
+        "url": "https://apps.microsoft.com/detail/xp9kcxf3r7hxvw",
+        "regex": "PikPak\\sV(\\d+\\.\\d+\\.\\d+)"
+    },
+    "autoupdate": {
+        "url": "https://static.mypikpak.com/desktop/official_PikPak.exe#/dl.7z"
+    }
 }
