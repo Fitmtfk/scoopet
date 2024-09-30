@@ -13,6 +13,18 @@
         }
     },
     "pre_install": [
+    "if (!(Test-Path \"$persist_dir\\config.xml\")) {",
+    "   New-Item \"$dir\\config.xml\" -Type File | Out-Null",
+    "   Set-Content \"$dir\\config.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">'",
+    "   Add-Content \"$dir\\config.xml\" \"  <DataDirPath>$dir\\data</DataDirPath>\"",
+    "   Add-Content \"$dir\\config.xml\" '  <SaveConfigInAppData>false</SaveConfigInAppData>\r\n  <SaveDataInAppData>false</SaveDataInAppData>\r\n  <SaveInAppData>false</SaveInAppData>'",
+    "   Add-Content \"$dir\\config.xml\" '  <CheckForBetaUpdates>false</CheckForBetaUpdates>\r\n  <CheckForDevUpdates>false</CheckForDevUpdates>\r\n  <CheckForUpdates>false</CheckForUpdates>'",
+    "   Add-Content \"$dir\\config.xml\" '  <Localization>zhCN</Localization>\r\n  <SelectedLanguage>zhCN</SelectedLanguage>'",
+    "   Add-Content \"$dir\\config.xml\" '</Config>'",
+    "}",
+    "if (!(Test-Path \"$persist_dir\\plugins.xml\")) {",
+    "   New-Item \"$dir\\plugins.xml\" -Type File | Out-Null",
+    "}"
     ],
     "bin": "Hearthstone Deck Tracker.exe",
     "shortcuts": [
@@ -22,7 +34,11 @@
         ]
     ],
     "persist": [
-        "data"
+        "plugins.xml",
+        "config.xml",
+        "data",
+        "Images",
+        "Plugins"
     ],
     "checkver": {
         "github": "https://github.com/HearthSim/Hearthstone-Deck-Tracker"
