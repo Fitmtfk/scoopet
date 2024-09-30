@@ -24,6 +24,7 @@
         ]
     ],
     "persist": [
+        "PeerBanHelper\\data"
     ],
     "checkver": {
         "github": "https://github.com/PBH-BTN/PeerBanHelper/"
