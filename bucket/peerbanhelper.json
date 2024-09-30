@@ -16,7 +16,7 @@
     },
     "pre_install": [
     ],
-    "bin": "PeerBanHelper/1) 以 GUI 模式启动.bat",
+    "bin": "PeerBanHelper\\1) 以 GUI 模式启动.bat",
     "shortcuts": [
         [
             "1) 以 GUI 模式启动.bat",
