@@ -46,10 +46,10 @@
     "autoupdate": {
         "architecture": {
             "32bit": {
-                "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v$version/Hearthstone.Deck.Tracker-v1.34.0.zip"
+                "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v$version/Hearthstone.Deck.Tracker-v$version.zip"
             },
             "64bit": {
-                "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v$version/Hearthstone.Deck.Tracker-v1.34.0.zip"
+                "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v$version/Hearthstone.Deck.Tracker-v$version.zip"
             }
         }
     }
