@@ -27,8 +27,9 @@
     ],
     "post_install": [
     "Write-Host \"Start instal language pack.\"",
-    "Invoke-CachedDownload $app ${version}\"_language_pack\" \"https://github.com/visualboyadvance-m/visualboyadvance-m/releases/download/v$version/translations.zip\" \"$dir\"",
-    "Expand-7zipArchive \"$dir\" \"$dir\" -Removal",
+    "$dlFile = 'dl.zip'"
+    "Invoke-CachedDownload $app ${version}\"_language_pack\" \"https://github.com/visualboyadvance-m/visualboyadvance-m/releases/download/v$version/translations.zip\" \"$dir\\$dlFile\"",
+    "Expand-7zipArchive \"$dir\\$dlfile\" \"$dir\" -Removal",
     "Write-Host \"Language pack installed.\""
     ],
     "bin": "visualboyadvance-m.exe",
