@@ -26,10 +26,10 @@
         "}"
     ],
     "post_install": [
-    "Invoke-WebRequest -Uri \"https://github.com/user/example-app/releases/download/v$version/example-app-language-pack-$version.zip\" -OutFile \"$dir\\example-app-language-pack-$version.zip\"",
-    "Expand-Archive $dir\\example-app-language-pack-$version.zip -DestinationPath $dir",
-    "Move-Item $dir\\example-app-language-pack\\* $dir",
-    "Remove-Item $dir\\example-app-language-pack"
+    "Write-Host \"Start instal language pack.\"",
+    "Invoke-CachedDownload $app ${version}\"_language_pack\" \"https://github.com/visualboyadvance-m/visualboyadvance-m/releases/download/v$version/translations.zip\" \"$dir\"",
+    "Expand-7zipArchive \"$dir\" \"$dir\" -Removal",
+    "Write-Host \"Language pack installed.\""
     ],
     "bin": "visualboyadvance-m.exe",
     "shortcuts": [
