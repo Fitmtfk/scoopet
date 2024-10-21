@@ -1,32 +1,38 @@
 {
-    "version": "1.35.1",
+    "version": "1.35.3",
     "description": "A deck tracker and deck manager for Hearthstone on Windows ",
     "homepage": "https://github.com/HearthSim/Hearthstone-Deck-Tracker",
     "architecture": {
         "32bit": {
-            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.35.1/Hearthstone.Deck.Tracker-v1.35.1.zip",
-            "hash":"",
+            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.35.3/Hearthstone.Deck.Tracker-v1.35.3.zip",
+            "hash": "ebc59c6f6c61e858108f635afc001ece013c504ab9aadc1d735f3543a73f8e17",
             "extract_dir": "Hearthstone Deck Tracker"
         },
         "64bit": {
-            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.35.1/Hearthstone.Deck.Tracker-v1.35.1.zip",
-            "hash":"",
+            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.35.3/Hearthstone.Deck.Tracker-v1.35.3.zip",
+            "hash": "ebc59c6f6c61e858108f635afc001ece013c504ab9aadc1d735f3543a73f8e17",
             "extract_dir": "Hearthstone Deck Tracker"
         }
     },
     "pre_install": [
-    "if (!(Test-Path \"$persist_dir\\config.xml\")) {",
-    "   New-Item \"$dir\\config.xml\" -Type File | Out-Null",
-    "   Set-Content \"$dir\\config.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">'",
-    "   Add-Content \"$dir\\config.xml\" \"  <DataDirPath>$dir\\data</DataDirPath>\"",
-    "   Add-Content \"$dir\\config.xml\" '  <SaveConfigInAppData>false</SaveConfigInAppData>\r\n  <SaveDataInAppData>false</SaveDataInAppData>\r\n  <SaveInAppData>false</SaveInAppData>'",
-    "   Add-Content \"$dir\\config.xml\" '  <CheckForBetaUpdates>false</CheckForBetaUpdates>\r\n  <CheckForDevUpdates>false</CheckForDevUpdates>\r\n  <CheckForUpdates>false</CheckForUpdates>'",
-    "   Add-Content \"$dir\\config.xml\" '  <Localization>zhCN</Localization>\r\n  <SelectedLanguage>zhCN</SelectedLanguage>'",
-    "   Add-Content \"$dir\\config.xml\" '</Config>'",
-    "}",
-    "if (!(Test-Path \"$persist_dir\\plugins.xml\")) {",
-    "   New-Item \"$dir\\plugins.xml\" -Type File | Out-Null",
-    "}"
+        "if (!(Test-Path \"$persist_dir\\config.xml\")) {",
+        "   New-Item \"$dir\\config.xml\" -Type File | Out-Null",
+        "   Set-Content \"$dir\\config.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?>
+<Config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">'",
+        "   Add-Content \"$dir\\config.xml\" \"  <DataDirPath>$dir\\data</DataDirPath>\"",
+        "   Add-Content \"$dir\\config.xml\" '  <SaveConfigInAppData>false</SaveConfigInAppData>
+  <SaveDataInAppData>false</SaveDataInAppData>
+  <SaveInAppData>false</SaveInAppData>'",
+        "   Add-Content \"$dir\\config.xml\" '  <CheckForBetaUpdates>false</CheckForBetaUpdates>
+  <CheckForDevUpdates>false</CheckForDevUpdates>
+  <CheckForUpdates>false</CheckForUpdates>'",
+        "   Add-Content \"$dir\\config.xml\" '  <Localization>zhCN</Localization>
+  <SelectedLanguage>zhCN</SelectedLanguage>'",
+        "   Add-Content \"$dir\\config.xml\" '</Config>'",
+        "}",
+        "if (!(Test-Path \"$persist_dir\\plugins.xml\")) {",
+        "   New-Item \"$dir\\plugins.xml\" -Type File | Out-Null",
+        "}"
     ],
     "bin": "Hearthstone Deck Tracker.exe",
     "shortcuts": [
