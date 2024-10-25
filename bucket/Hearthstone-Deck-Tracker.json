@@ -14,12 +14,12 @@
             "extract_dir": "Hearthstone Deck Tracker"
         }
     },
-    "pre_install": [
+    "post_install": [
         "if (!(Test-Path \"$persist_dir\\config.xml\")) {",
         "   New-Item \"$dir\\config.xml\" -Type File | Out-Null",
         "   Set-Content \"$dir\\config.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?>
 <Config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">'",
-        "   Add-Content \"$dir\\config.xml\" \"  <DataDirPath>$dir\\data</DataDirPath>\"",
+        "   Add-Content \"$dir\\config.xml\" \"  <DataDirPath>$persist_dir\\data</DataDirPath>\"",
         "   Add-Content \"$dir\\config.xml\" '  <SaveConfigInAppData>false</SaveConfigInAppData>
   <SaveDataInAppData>false</SaveDataInAppData>
   <SaveInAppData>false</SaveInAppData>'",
@@ -44,7 +44,6 @@
     "persist": [
         "plugins.xml",
         "config.xml",
-        "data",
         "Images",
         "Plugins"
     ],
