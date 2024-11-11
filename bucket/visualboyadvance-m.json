@@ -25,7 +25,7 @@
         "   Add-Content -Path \"$dir\\vbam.ini\" -Value $_`Dir`=$_ }",
         "}",
         "if (!(Test-Path \"$dir\\vba-over.ini\")) {",
-        "   New-Item \"$dir\\vbam.ini\" -Type File | Out-Null",
+        "   New-Item \"$dir\\vba-over.ini\" -Type File | Out-Null",
         "}"
     ],
     "post_install": [
