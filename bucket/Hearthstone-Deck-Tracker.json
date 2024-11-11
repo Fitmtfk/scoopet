@@ -16,19 +16,19 @@
     },
     "pre_install": [
         "if (!(Test-Path \"$persist_dir\\config.xml\")) {",
-        "   New-Item \"$persist_dir\\config.xml\" -Type File | Out-Null",
-        "   Set-Content \"$persist_dir\\config.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?>
+        "   New-Item \"$dir\\config.xml\" -Type File | Out-Null",
+        "   Set-Content \"$dir\\config.xml\" '<?xml version=\"1.0\" encoding=\"utf-8\"?>
 <Config xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">'",
-        "   Add-Content \"$persist_dir\\config.xml\" \"  <DataDirPath>$persist_dir\\data</DataDirPath>\"",
-        "   Add-Content \"$persist_dir\\config.xml\" '  <SaveConfigInAppData>false</SaveConfigInAppData>
+        "   Add-Content \"$dir\\config.xml\" \"  <DataDirPath>$persist_dir\\data</DataDirPath>\"",
+        "   Add-Content \"$dir\\config.xml\" '  <SaveConfigInAppData>false</SaveConfigInAppData>
   <SaveDataInAppData>false</SaveDataInAppData>
   <SaveInAppData>false</SaveInAppData>'",
-        "   Add-Content \"$persist_dir\\config.xml\" '  <CheckForBetaUpdates>false</CheckForBetaUpdates>
+        "   Add-Content \"$dir\\config.xml\" '  <CheckForBetaUpdates>false</CheckForBetaUpdates>
   <CheckForDevUpdates>false</CheckForDevUpdates>
   <CheckForUpdates>false</CheckForUpdates>'",
-        "   Add-Content \"$persist_dir\\config.xml\" '  <Localization>zhCN</Localization>
+        "   Add-Content \"$dir\\config.xml\" '  <Localization>zhCN</Localization>
   <SelectedLanguage>zhCN</SelectedLanguage>'",
-        "   Add-Content \"$persist_dir\\config.xml\" '</Config>'",
+        "   Add-Content \"$dir\\config.xml\" '</Config>'",
         "}",
         "if (!(Test-Path \"$persist_dir\\plugins.xml\")) {",
         "   New-Item \"$dir\\plugins.xml\" -Type File | Out-Null",

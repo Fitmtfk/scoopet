@@ -17,14 +17,14 @@
         }
     },
     "pre_install": [
-        "if (!(Test-Path \"$dir\\vbam.ini\")) {",
+        "if (!(Test-Path \"$persist_dir\\vbam.ini\")) {",
         "   New-Item \"$dir\\vbam.ini\" -Type File | Out-Null",
         "   Set-Content \"$dir\\vbam.ini\" '[General]'",
         "   Add-Content \"$dir\\vbam.ini\" 'OnlineUpdates=never'",
         "   'Battery', 'Recording', 'Screenshot', 'State' | ForEach-Object {",
         "   Add-Content -Path \"$dir\\vbam.ini\" -Value $_`Dir`=$_ }",
         "}",
-        "if (!(Test-Path \"$dir\\vba-over.ini\")) {",
+        "if (!(Test-Path \"$persist_dir\\vba-over.ini\")) {",
         "   New-Item \"$dir\\vba-over.ini\" -Type File | Out-Null",
         "}"
     ],
