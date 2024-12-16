@@ -1,12 +1,12 @@
 {
-    "version": "1.6.5",
+    "version": "1.7.0",
     "description": "A all-in-one Desktop & Docker AI application with full RAG and AI Agent capabilities.",
     "homepage": "https://useanything.com/",
     "license": "MIT",
     "architecture": {
         "64bit": {
             "url": "https://s3.us-west-1.amazonaws.com/public.useanything.com/latest/AnythingLLMDesktop.exe",
-            "hash": ""
+            "hash": "ca20d53804ba08b2a7303f5405d01816fe7f36fada337b9836500234d4c9f56e"
         }
     },
     "installer": {
