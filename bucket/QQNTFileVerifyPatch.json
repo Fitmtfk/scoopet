@@ -1,20 +1,20 @@
 {
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "逆他妈的QQNT Patch文件检测 ",
     "homepage": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/",
     "architecture": {
         "32bit": {
-            "url": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/releases/download/DllHijack_1.1.1/dbghelp_x86.dll",
-            "hash": "2af5fdea63a9682177413a760272d8c89ee50ef4644d351f3282cfdda116ca46"
+            "url": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/releases/download/DllHijack_1.1.2/dbghelp_x86.dll",
+            "hash": "dfd0fbf2b0a985eccfead1278227f62dde3f2c4eaa2c34277cd50b6d2f1f767a"
         },
         "64bit": {
-            "url": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/releases/download/DllHijack_1.1.1/dbghelp_x64.dll",
-            "hash": "2af5fdea63a9682177413a760272d8c89ee50ef4644d351f3282cfdda116ca46"
+            "url": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/releases/download/DllHijack_1.1.2/dbghelp_x64.dll",
+            "hash": "4bb8cd08d7e96bd085fa2afa46d7b36e3f312a6c4d633363411ef763449d700f"
         }
     },
     "checkver": {
         "url": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/releases/latest/",
-        "regex":"DllHijack_(\\d+\\.\\d+\\.\\d+)"
+        "regex": "DllHijack_(\\d+\\.\\d+\\.\\d+)"
     },
     "autoupdate": {
         "architecture": {
