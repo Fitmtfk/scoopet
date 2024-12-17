@@ -13,7 +13,8 @@
         }
     },
     "checkver": {
-        "github": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/releases/latest/"
+        "url": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/releases/latest/",
+        "regex":"DllHijack_(\\d+\\.\\d+\\.\\d+)"
     },
     "autoupdate": {
         "architecture": {
