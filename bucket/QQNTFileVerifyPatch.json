@@ -13,7 +13,7 @@
         }
     },
     "checkver": {
-        "github": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/"
+        "github": "https://github.com/LiteLoaderQQNT/QQNTFileVerifyPatch/release/latest/"
     },
     "autoupdate": {
         "architecture": {
