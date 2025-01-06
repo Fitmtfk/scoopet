@@ -191,8 +191,20 @@
         "    Set-ItemProperty -Path $registryPath -Name IconStreams -Value $newIconStreams",
         "}",
         "",
+        "function ExplorerProcessCheck {",
+        "    Write-Warning 'Explorer-Process will be checked'",
+        "    $Explorer = Get-Process explorer -ErrorAction SilentlyContinue",
+        "    if ($Explorer) {",
+        "        Write-Host 'Explorer-Process halted, please wait 5 Seconds'",
+        "        Stop-Process -Name explorer -Force",
+        "    }",
+        "    Start-Sleep -Seconds 5",
+        "    Write-Host 'Explorer-Prozess restarted'",
+        "    Write-Host 'Explorer-Prozess runs' -ForegroundColor Yellow",
+        "}",
         "# Call the function with the new version number",
-        "Fix-v2rayNSystemTrayIconPath -NewVersion $version"
+        "Fix-v2rayNSystemTrayIconPath -NewVersion $version",
+        "ExplorerProcessCheck"
     ],
     "bin": "v2rayN.exe",
     "shortcuts": [
