@@ -193,7 +193,6 @@
         "}",
         "",
         "function ExplorerProcessCheck {",
-        "    Write-Host ''",
         "    Write-Warning 'Explorer-Process will be checked'",
         "    $Explorer = Get-Process explorer -ErrorAction SilentlyContinue",
         "    if ($Explorer) {",
