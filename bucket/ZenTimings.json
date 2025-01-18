@@ -22,6 +22,7 @@
     "bin": "ZenTimings.exe",
     "shortcuts": [
         [
+            "ZenTimings.exe",
             "ZenTimings"
         ]
     ],
