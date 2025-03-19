@@ -209,7 +209,7 @@
     "persist": [
     "guiConfigs",
     "bin"
-    ]
+    ],
     "checkver": "github",
     "autoupdate": {
         "architecture": {
