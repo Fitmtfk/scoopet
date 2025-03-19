@@ -20,8 +20,8 @@
         }
     },
     "pre_install": [
-    "Remove-Item -Path \"$dir\\bin\" -Recurse -Force",
-    "Expand-7zipArchive \"$dir\\$dlfile\" \"$persist_dir\" \"v2rayN-windows-64\bin\" \"All\"-Removal"
+    "Copy-Item -Path \"$dir\\bin\" -Destination \"$persist_dir\" -Recurse -Force",
+    "Remove-Item -Path \"$dir\\bin\" -Recurse -Force"
     ],
     "post_install": [
         "# Define the enum Visibility",
