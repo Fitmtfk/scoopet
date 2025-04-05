@@ -47,10 +47,11 @@
     "pre_uninstall": "if (Test-Path \"$persist_dir\") {Copy-Item \"$dir\\Plugins\\Monitoring\" \"$persist_dir\\Plugins\\Monitoring\" -Recurse -ErrorAction 'SilentlyContinue'}",
     "checkver": {
         "url": "https://www.guru3d.com/files-details/msi-afterburner-beta-download.html",
-        "regex": "Download\\s+([\\d.]+\\s+\\(Beta\\s+\\d+\\s+Build\\s+\\d+\\))",
-        "reverse": true
+        "regex": "Download\\s+([\\d.]+)\\s+\\(Beta\\s+(\\d+)\\s+Build\\s+(\\d+)\\)",
+        "reverse": true,
+        "replace":"${1}-Beta${2}-Build${3}"
     },
     "autoupdate": {
-        "url": "\"https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup\" + ($version -replace '[.\\s()]','') + \".zip\""
+        "url": "https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup/$cleanVersion.zip"
     }
 }
