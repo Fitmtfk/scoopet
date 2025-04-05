@@ -1,5 +1,5 @@
 {
-    "version": "4.6.5",
+    "version": "4.6.6-Beta5-Build16555",
     "description": "Overclocking utility for graphics cards. Main features include GPU/Shader/Memory clock adjustment, advanced fan speed and GPU voltage control.",
     "homepage": "https://www.msi.com/page/afterburner",
     "license": {
@@ -17,8 +17,8 @@
         "MSI Kombustor": "extras/msikombustor",
         "FurMark": "extras/furmark"
     },
-    "url": "https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D.com]-MSIAfterburnerSetup465.zip",
-    "hash": "1a8f1d9de5e11756e06c9bcd33ed858a3a9aaa00d9bb613a0e82058af420474f",
+    "url": "https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D]-MSIAfterburnerSetup466Beta5Build16555.zip",
+    "hash": "56567d4e61e7513298e2ba73c4a50e11614a59bbf94db96ec6bc4382e21c4f60",
     "pre_install": [
         "ensure \"$persist_dir\" | Out-Null",
         "Expand-7zipArchive \"$dir\\MSIAfterburnerSetup*.exe\" -Removal",
@@ -49,7 +49,7 @@
         "url": "https://www.guru3d.com/files-details/msi-afterburner-beta-download.html",
         "regex": "Download\\s+([\\d.]+)\\s+\\(Beta\\s+(\\d+)\\s+Build\\s+(\\d+)\\)",
         "reverse": true,
-        "replace":"${1}-Beta${2}-Build${3}"
+        "replace": "${1}-Beta${2}-Build${3}"
     },
     "autoupdate": {
         "url": "https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D]-MSIAfterburnerSetup$cleanVersion.zip"
