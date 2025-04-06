@@ -6,7 +6,7 @@
     "depends": "main/7zip",
     "url": "https://www.dogfight360.com/blog/wp-content/uploads/2025/04/steamcommunity_302_AMD64_V13.0.03.zip",
     "hash": "3bc5ded0240b16c1e35003b1dca0e61a82d20431261bea2f9b4dce51beaff7f3",
-    "extract_dir": "Steamcommunity_302",
+    "extract_dir": "steamcommunity_302_AMD64_V13.0.03/Steamcommunity_302",
     "shortcuts": [
         [
             "Steamcommunity_302.exe",
@@ -17,6 +17,7 @@
         "regex": "uploads/(?<date>[\\d/]+)/steamcommunity_302_AMD64_V([\\d.]+).zip"
     },
     "autoupdate": {
-        "url": "https://www.dogfight360.com/blog/wp-content/uploads/$matchDate/steamcommunity_302_AMD64_V$version.zip"
+        "url": "https://www.dogfight360.com/blog/wp-content/uploads/$matchDate/steamcommunity_302_AMD64_V$version.zip",
+        "extract_dir": "steamcommunity_302_AMD64_V$version/Steamcommunity_302"
     }
 }
