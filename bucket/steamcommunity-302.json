@@ -1,12 +1,12 @@
 {
-    "version": "13.0.03",
+    "version": "13.0.04",
     "description": "Reverse proxy tool to access Steam Community in mainland China.",
     "homepage": "https://www.dogfight360.com/blog/18682/",
     "license": "Freeware",
     "depends": "main/7zip",
-    "url": "https://www.dogfight360.com/blog/wp-content/uploads/2025/04/steamcommunity_302_AMD64_V13.0.03.zip",
-    "hash": "3bc5ded0240b16c1e35003b1dca0e61a82d20431261bea2f9b4dce51beaff7f3",
-    "extract_dir": "steamcommunity_302_AMD64_V13.0.03/Steamcommunity_302",
+    "url": "https://www.dogfight360.com/blog/wp-content/uploads/2025/04/steamcommunity_302_AMD64_V13.0.04.zip",
+    "hash": "4a9ee4b3e5bde869619292f148e391723e4801f35c51ec282f6b5441e477cbb1",
+    "extract_dir": "steamcommunity_302_AMD64_V13.0.04/Steamcommunity_302",
     "shortcuts": [
         [
             "Steamcommunity_302.exe",
