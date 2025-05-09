@@ -12,6 +12,7 @@
             "DLSS Swapper"
         ]
     ],
+    "persist":"StoredData",
     "checkver": "github",
     "autoupdate": {
         "url": "https://github.com/beeradmoore/dlss-swapper/releases/download/v$version/DLSS.Swapper-$version.0-portable.zip"
