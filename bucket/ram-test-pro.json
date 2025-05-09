@@ -1,12 +1,12 @@
 {
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "Stress Testing and Benchmarking DDR5, DDR4, DDR3 memory",
     "homepage": "https://pcstonks.ru/ram-test-pro/en",
-    "url": "https://media.pcstonks.ru/ram-test-pro/1.4.0/ram_test_pro_1.4.0.zip",
-    "hash": "93e39c7ad3ae2ed559ad61a7bc5b35e82ad8f1124debe9f63f20e36fda0be7b7",
-    "extract_dir": "RAMTestPro1.4.0",
+    "url": "https://media.pcstonks.ru/ram-test-pro/1.5.0/ram_test_pro_1.5.0.zip",
+    "hash": "5ef7a4a037ce02118fb3de896c6e12d3b3bbc941afd1e9efe0f67051771571b2",
+    "extract_dir": "RAMTestPro1.5.0",
     "bin": "RAM Test Pro.exe",
-    "checkver": "Download RAM Test Pro (FREE) v([\\d.]+)",
+    "checkver": "v([\\d.]+)",
     "autoupdate": {
         "url": "https://media.pcstonks.ru/ram-test-pro/$version/ram_test_pro_$version.zip",
         "extract_dir": "RAMTestPro$version"
