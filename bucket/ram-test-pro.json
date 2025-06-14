@@ -12,7 +12,7 @@
             "RAM Test Pro"
         ]
     ],
-    "checkver": "v([\\d.]+)",
+    "checkver":"Version (\\d+(?:\\.\\d+)+)",
     "autoupdate": {
         "url": "https://media.pcstonks.ru/ram-test-pro/$version/ram_test_pro_$version.zip",
         "extract_dir": "RAMTestPro$version"
