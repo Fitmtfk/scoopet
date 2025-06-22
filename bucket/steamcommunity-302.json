@@ -18,7 +18,7 @@
         "   New-Item \"$dir\\S302.ini\" -Type File | Out-Null"
     ],
     "persist":[
-        "S302.ini",
+        "S302.ini"
     ],
     "checkver": {
         "regex": "uploads/(?<date>[\\d/]+)/steamcommunity_302_AMD64_V([\\d.]+).zip"
