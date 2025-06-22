@@ -13,6 +13,11 @@
             "LunaTranslator"
         ]
     ],
+    "persist": [
+        "cache",
+        "userconfig",
+        "translation_record"
+    ],
     "checkver": {
         "url": "https://api.github.com/repos/HIllya51/LunaTranslator/releases",
         "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>LunaTranslator_x64_win10.zip)"
