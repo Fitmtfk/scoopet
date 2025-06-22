@@ -20,7 +20,7 @@
     },
     "installer": {
         "script": [
-            "\"$dir\\$fname\" /install /quiet /norestart"
+            "& \"$dir\\$fname\" /install /quiet /norestart"
         ]
     },
     "checkver": {
