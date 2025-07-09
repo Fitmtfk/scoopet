@@ -12,8 +12,8 @@
     "url": "https://ghfast.top/https://github.com/zbezj/HEU_KMS_Activator/releases/download/63.1.0/HEU_KMS_Activator_v63.1.0.rar#dl.rar_",
     "hash": "e27a66f172c6bfaef523ed429824393773770f058addcd8fa0af3aca34d68726",
     "pre_install":[
-        "$zip=(Get-ChildItem $dir\\HEU_KMS_Activator*).Name",
-        "7z x $dir\\$zip -p'HEU168' $('-o' + $dir) | Out-Null",
+        "$zip=(Get-ChildItem $dir\\\\HEU_KMS_Activator*).Name",
+        "7z x $dir\\\\$zip -p'HEU168' $('-o' + $dir) | Out-Null",
         "Rename-Item \"$dir\\HEU_KMS_Activator_*.exe\" \"HEU_KMS_Activator.exe\" -Force"
     ],
     "bin": "HEU_KMS_Activator.exe",
