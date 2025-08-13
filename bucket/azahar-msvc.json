@@ -9,7 +9,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/azahar-emu/azahar/releases/download/2122.1/azahar-2122.1-windows-msvc.zip",
-            "hash": "89f6bad4363f890ad0d3f1e8731c9e00eefc947b81f9d71326e0e04661550fd5"
+            "hash": "2b168a2c1f3973b64e945a0f7341d97badddcab5e85600c476b18b21b31a40ee"
         }
     },
     "extract_dir": "azahar-2122.1-windows-msvc",
