@@ -1,11 +1,11 @@
 {
-    "version": "10.9.0",
+    "version": "10.10.0.2",
     "description": "Galgame翻译器，支持HOOK、OCR、剪贴板等。Visual Novel Translator , support HOOK / OCR / clipboard",
     "homepage": "https://lunatranslator.org/",
     "license": "GPL-3.0",
     "changelog": "https://github.com/HIllya51/LunaTranslator/releases",
-    "url": "https://github.com/HIllya51/LunaTranslator/releases/download/v10.9.0/LunaTranslator_x64_win10.zip",
-    "hash": "8b245455f1806703f40ac99f7258501b8d6b7a38d6722d7d32afbd1c7c314c60",
+    "url": "https://github.com/HIllya51/LunaTranslator/releases/download/v10.10.0.2/LunaTranslator_x64_win10.zip",
+    "hash": "d527ec4affbce5a6e2360199d0d58c634d2efc781567089b0875cfa88dff159c",
     "extract_dir": "LunaTranslator_x64_win10",
     "shortcuts": [
         [
