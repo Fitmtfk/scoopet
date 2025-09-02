@@ -1,0 +1,24 @@
+{
+    "version": "3.63",
+    "description": "PowerShell Script for Identifying/Fixing Issues for HD2 (Windows only) ",
+    "homepage": "https://github.com/helldivers2fixes/HellbombScript",
+    "license": "MIT",
+    "url": "https://github.com/helldivers2fixes/HellbombScript/releases/download/v3.63/Hellbomb.Script.v363.exe#dl.exe_",
+    "hash": "4924aa21fc8c4a89ebade3a44d55e011f204c29c938afddf48c5c46fd3b386ae",
+    "shortcuts": [
+        [
+            "Hellbomb.Script.exe",
+            "Hellbomb.Script"
+        ]
+    ],
+    "installer": {
+        "script": "Rename-Item *.exe_ Hellbomb.Script.exe"
+    },
+    "checkver": {
+        "url": "https://api.github.com/repos/helldivers2fixes/HellbombScript/releases",
+        "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>Hellbomb.Script.v[\\d]+.exe)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/helldivers2fixes/HellbombScript/releases/download/v$version/$matchFile#dl.exe_"
+    }
+}
