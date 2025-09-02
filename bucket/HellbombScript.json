@@ -12,7 +12,7 @@
         ]
     ],
     "installer": {
-        "script": "Rename-Item *.exe_ Hellbomb.Script.exe"
+        "script": "Rename-Item $dir\\*.exe_ $dir\\Hellbomb.Script.exe"
     },
     "checkver": {
         "url": "https://api.github.com/repos/helldivers2fixes/HellbombScript/releases",
