@@ -16,9 +16,15 @@
     "pre_install": [
         "if (!(Test-Path \"$persist_dir\\S302.ini\")) {",
         "   New-Item \"$dir\\S302.ini\" -Type File | Out-Null",
+        "}",
+        "if (!(Test-Path \"$persist_dir\\S302_rules.ini\")) {",
+        "   New-Item \"$dir\\S302_rules.ini\" -Type File | Out-Null",
         "}"
     ],
-    "persist": "S302.ini",
+    "persist": [
+        "S302.ini",
+        "S302_rules.ini"
+    ],
     "checkver": {
         "regex": "uploads/(?<date>[\\d/]+)/steamcommunity_302_AMD64_V([\\d.]+).zip"
     },
