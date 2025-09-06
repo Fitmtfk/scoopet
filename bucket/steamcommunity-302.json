@@ -15,7 +15,8 @@
     ],
     "pre_install": [
         "if (!(Test-Path \"$persist_dir\\S302.ini\")) {",
-        "   New-Item \"$dir\\S302.ini\" -Type File | Out-Null"
+        "   New-Item \"$dir\\S302.ini\" -Type File | Out-Null",
+        "}"
     ],
     "persist": "S302.ini",
     "checkver": {
