@@ -1,5 +1,5 @@
 {
-    "version": "2123.2",
+    "version": "2123.3",
     "description": "Open source 3DS emulator project based on Citra",
     "homepage": "https://azahar-emu.org/",
     "license": {
@@ -8,11 +8,11 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/azahar-emu/azahar/releases/download/2123.2/azahar-2123.2-windows-msvc.zip",
-            "hash": "b78fe42039d54e0b6f5bd5538114a3ff5834c417badd9a12c93a8094e8d8296e"
+            "url": "https://github.com/azahar-emu/azahar/releases/download/2123.3/azahar-2123.3-windows-msvc.zip",
+            "hash": "6abf674aea150058a55ed262a38e36d10797ddca61dfb9b0badfbd01955aa157"
         }
     },
-    "extract_dir": "azahar-2123.2-windows-msvc",
+    "extract_dir": "azahar-2123.3-windows-msvc",
     "pre_install": [
         "if (!(Test-Path \"$persist_dir\\user\")) {",
         "   New-Item -Path \"$persist_dir\" -Name \"user\" -ItemType \"directory\" | Out-Null",
