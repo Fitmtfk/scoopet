@@ -171,7 +171,7 @@
         "            Write-Host \"$programPath matches the pattern and replaced: $newProgramPath\"",
         "            $newunicodePath = Convert-CeaserCipher -InputString $newProgramPath",
         "            $newunicodePathBytes = [System.Text.Encoding]::Unicode.GetBytes($newunicodePath)",
-        "            $buffer = New-Object byte[] 1620",
+        "            $buffer = New-Object byte[] 512",
         "            [System.Array]::Copy($newunicodePathBytes, $buffer, $newunicodePathBytes.Length)",
         "            $writer.BaseStream.Seek($i * 1640 + 20, [System.IO.SeekOrigin]::Begin) | Out-Null",
         "            $writer.Write($buffer)",
