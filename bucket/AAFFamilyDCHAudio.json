@@ -1,10 +1,10 @@
 {
-    "version": "11.10.9909.1",
+    "version": "11.10.9918.1",
     "description": "AAF Family DCH Audio Driver (Realtek Modded) Official Repository",
     "homepage": "https://github.com/AAFOptimus/AAFFamilyDCHAudio",
     "license": "Freeware",
-    "url": "https://github.com/AAFOptimus/AAFFamilyDCHAudio/releases/download/11.10.9909.1/AAFFamilyDCHAudioPack_9909.7z",
-    "hash": "e57b17dfc49a9b9f455083f2ac2c11d39304fa2765197c833ce90a0b0cddd43f",
+    "url": "https://github.com/AAFOptimus/AAFFamilyDCHAudio/releases/download/11.10.9918.1/AAFFamilyDCHAudioPack_9918.7z",
+    "hash": "3b554ac298e149391225839bfeda38f1372ac3a4771516930cf7b83197d76d99",
     "bin": "Setup.exe",
     "shortcuts": [
         [
