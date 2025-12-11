@@ -1,5 +1,5 @@
 {
-    "version": "9.1.5",
+    "version": "9.2.2",
     "description": "BT 反吸血工具 - 自动封禁不受欢迎、吸血和异常的 BT 客户端，并支持自定义规则。PeerId黑名单/UserAgent黑名单/IP CIDR/假进度/超量下载/进度回退/多播追猎/连锁封禁/伪装检测 支持 qBittorrent/Transmission/Deluge/BiglyBT/Vuze(Azureus)/BitComet ",
     "homepage": "https://github.com/PBH-BTN/PeerBanHelper",
     "license": {
@@ -8,13 +8,13 @@
     },
     "architecture": {
         "32bit": {
-            "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v9.1.5/PeerBanHelper_Windows_9.1.5_Portable.zip",
-            "hash": "559a73af05141cee2eb3c87ece4cd32ec528f5411b15ada0201e85a3e918e249",
+            "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v9.2.2/PeerBanHelper_Windows_9.2.2_Portable.zip",
+            "hash": "cea68bd5d8746d0efca126679ef255d35085366dd25a067e114d6de3174b7c1b",
             "extract_dir": "PeerBanHelper"
         },
         "64bit": {
-            "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v9.1.5/PeerBanHelper_Windows_9.1.5_Portable.zip",
-            "hash": "559a73af05141cee2eb3c87ece4cd32ec528f5411b15ada0201e85a3e918e249",
+            "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v9.2.2/PeerBanHelper_Windows_9.2.2_Portable.zip",
+            "hash": "cea68bd5d8746d0efca126679ef255d35085366dd25a067e114d6de3174b7c1b",
             "extract_dir": "PeerBanHelper"
         }
     },
