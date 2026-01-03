@@ -6,7 +6,6 @@
         "identifier": "GPL-3.0",
         "url": "https://www.gnu.org/licenses/gpl-3.0.html"
     },
-
     "url": "https://github.com/irusanov/SMUDebugTool/releases/download/v1.38/SMUDebugTool_v1.38_20241203.zip",
     "hash": "",
     "bin": "SMUDebugTool.exe",
@@ -17,6 +16,10 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/irusanov/SMUDebugTool"
+        "url": "https://api.github.com/repos/irusanov/SMUDebugTool/releases",
+        "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>SMUDebugTool_v.+\\.zip$)"
+    },
+    "autoupdate": {
+        "url": "https://api.github.com/repos/irusanov/SMUDebugTool/releases/download/v$version/$matchFile"
     }
 }
