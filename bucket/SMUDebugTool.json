@@ -1,13 +1,13 @@
 {
-    "version": "1.38",
+    "version": "1.39",
     "description": "A dedicated tool to help write/read various parameters of Ryzen-based systems, such as manual overclock, SMU, PCI, CPUID, MSR and Power Table. ",
     "homepage": "https://github.com/irusanov/SMUDebugTool",
     "license": {
         "identifier": "GPL-3.0",
         "url": "https://www.gnu.org/licenses/gpl-3.0.html"
     },
-    "url": "https://github.com/irusanov/SMUDebugTool/releases/download/v1.38/SMUDebugTool_v1.38_20241203.zip",
-    "hash": "",
+    "url": "https://github.com/irusanov/SMUDebugTool/releases/download/v1.39/SMUDebugTool_v1.39.zip",
+    "hash": "49f10a860a794be04dd1716b0e8e0e13153250e6371d767119843695390c3c39",
     "bin": "SMUDebugTool.exe",
     "shortcuts": [
         [
@@ -17,9 +17,9 @@
     ],
     "checkver": {
         "url": "https://api.github.com/repos/irusanov/SMUDebugTool/releases",
-        "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>SMUDebugTool_v.+\\.zip$)"
+        "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>SMUDebugTool_v[^\",\\s]+\\.zip)"
     },
     "autoupdate": {
-        "url": "https://api.github.com/repos/irusanov/SMUDebugTool/releases/download/v$version/$matchFile"
+        "url": "https://github.com/irusanov/SMUDebugTool/releases/download/v$version/$matchFile"
     }
 }
