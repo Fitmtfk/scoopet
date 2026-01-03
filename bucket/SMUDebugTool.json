@@ -15,6 +15,7 @@
             "SMUDebugTool"
         ]
     ],
+    "persist": "profiles",
     "checkver": {
         "url": "https://api.github.com/repos/irusanov/SMUDebugTool/releases",
         "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>SMUDebugTool_v[^\",\\s]+\\.zip)"
