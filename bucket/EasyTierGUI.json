@@ -5,16 +5,8 @@
     "license": {
         "identifier": "LGPL-3.0-only"
     },
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/EasyTier/EasyTier/releases/download/v2.4.5/easytier-gui_2.4.5_x64-setup.exe",
-            "hash": "57727f955a01c9d2ac4566b9320cf383a3e446ebc5f882e7995aa5195a4ef1f0"
-        },
-        "arm64": {
-            "url": "https://github.com/EasyTier/EasyTier/releases/download/v2.4.5/easytier-gui_2.4.5_arm64-setup.exe",
-            "hash": "52bdd7b52ba11036636673e28b71e14637fd915b3a4189eea20f81d833ac77bf"
-        }
-    },
+    "url": "https://github.com/EasyTier/EasyTier/releases/download/v2.4.5/easytier-gui_2.4.5_x64-setup.exe",
+    "hash": "57727f955a01c9d2ac4566b9320cf383a3e446ebc5f882e7995aa5195a4ef1f0",
     "shortcuts": [
         [
             "app\\easytier-gui.exe",
@@ -22,46 +14,63 @@
         ]
     ],
     "pre_install": [
-        "$bucket = if ($bucket) { $bucket } else { (scoop config).'abgox-abyss-bucket-name' }",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "A-Start-Install",
-        "A-New-LinkDirectory \"$env:LocalAppData\\com.kkrainbow.easytier\"",
-        "A-Install-Exe -Uninstaller 'app\\uninstall.exe'"
-    ],
-    "post_install": [
-        "$bucket = if ($bucket) { $bucket } else { (scoop config).'abgox-abyss-bucket-name' }",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "A-Complete-Install"
+        "$target = \"$env:LocalAppData\\com.kkrainbow.easytier\"",
+        "$dest = \"$persist_dir\\com.kkrainbow.easytier\"",
+        "$targetParent = Split-Path $target",
+        "$destParent = Split-Path $dest",
+        "if (!(Test-Path $destParent)) { New-Item -ItemType Directory -Path $destParent -Force | Out-Null }",
+        "if (Test-Path -LiteralPath $target) {",
+        "    if (!(Get-Item -LiteralPath $target).LinkType -and !(Test-Path -LiteralPath $dest)) {",
+        "        Move-Item -Path $target -Destination $dest -Force",
+        "    }",
+        "    Remove-Item -LiteralPath $target -Recurse -Force",
+        "}",
+        "if (!(Test-Path -LiteralPath $dest)) { New-Item -ItemType Directory -Path $dest -Force | Out-Null }",
+        "if (!(Test-Path $targetParent)) { New-Item -ItemType Directory -Path $targetParent -Force | Out-Null }",
+        "New-Item -ItemType Junction -Path $target -Target $dest -Force | Out-Null",
+        "Write-Host \"Linked $target => $dest\" -ForegroundColor Cyan",
+        "## 这里的逻辑对应 A-Install-Exe ##",
+        "$installerPath = Join-Path $dir $fname",
+        "if (Test-Path $installerPath) {",
+        "    Write-Host \"Running Installer: $fname ...\" -ForegroundColor Cyan",
+        "    $process = Start-Process $installerPath -ArgumentList @('/S', \"/D=$dir\\app\") -PassThru -WindowStyle Hidden",
+        "    $process | Wait-Process",
+        "    Start-Sleep -Seconds 10",
+        "    Remove-Item $installerPath -Force -ErrorAction SilentlyContinue",
+        "}"
     ],
     "pre_uninstall": [
-        "$bucket = if ($bucket) { $bucket } else { (scoop config).'abgox-abyss-bucket-name' }",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "A-Start-Uninstall",
-        "A-Stop-Process",
-        "A-Remove-Link",
-        "A-Uninstall-Exe"
-    ],
-    "post_uninstall": [
-        "$bucket = if ($bucket) { $bucket } else { (scoop config).'abgox-abyss-bucket-name' }",
-        ". \"$bucketsdir\\$bucket\\bin\\utils.ps1\"",
-        "A-Complete-Uninstall"
+        "## 1. 停止运行中的进程 (基于路径，更精准) ##",
+        "Write-Host 'Stopping EasyTier processes...' -ForegroundColor Yellow",
+        "$processes = Get-Process | Where-Object { try { $_.MainModule.FileName -like \"$dir\\*\" } catch { $false } }",
+        "if ($processes) { $processes | Stop-Process -Force -ErrorAction SilentlyContinue }",
+        "Start-Sleep -Seconds 1",
+        "",
+        "## 2. 断开链接 (数据保护：防止卸载程序顺着链接删除持久化数据) ##",
+        "$target = \"$env:LocalAppData\\com.kkrainbow.easytier\"",
+        "if (Test-Path -LiteralPath $target) {",
+        "    $item = Get-Item -LiteralPath $target",
+        "    if ($item.LinkType) {",
+        "        Remove-Item -LiteralPath $target -Force",
+        "        Write-Host 'Unlinked LocalAppData to protect persist data.' -ForegroundColor Gray",
+        "    }",
+        "}",
+        "",
+        "## 3. 执行官方卸载逻辑 (模拟 A-Uninstall-Exe) ##",
+        "$uninst = \"$dir\\app\\uninstall.exe\"",
+        "if (Test-Path $uninst) {",
+        "    Write-Host 'Running official uninstaller...' -ForegroundColor Cyan",
+        "    $p = Start-Process $uninst -ArgumentList '/S' -PassThru -WindowStyle Hidden",
+        "    $p | Wait-Process",
+        "    Start-Sleep -Seconds 5",
+        "}"
     ],
     "checkver": {
-        "script": [
-            ". \"$pwd\\bin\\utils.ps1\"",
-            "A-Get-VersionFromGithubAPI"
-        ],
-        "regex": "(.+)"
+        "url": "api.github.com/repos/EasyTier/EasyTier/releases",
+        "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>easytier-gui_([\\d.]+)_x64-setup.exe)"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/EasyTier/EasyTier/releases/download/v$version/easytier-gui_$version_x64-setup.exe"
-            },
-            "arm64": {
-                "url": "https://github.com/EasyTier/EasyTier/releases/download/v$version/easytier-gui_$version_arm64-setup.exe"
-            }
-        },
+        "url": "https://github.com/EasyTier/EasyTier/releases/download/v$version/$matchFile",
         "hash": {
             "mode": "github"
         }
