@@ -18,9 +18,6 @@
             "extract_dir": "PeerBanHelper"
         }
     },
-    "pre_install": [
-        
-    ],
     "bin": "1) 以 GUI 模式启动.bat",
     "shortcuts": [
         [
