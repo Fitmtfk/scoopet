@@ -1,0 +1,36 @@
+{
+  "Scoop Manifest": {
+    "prefix": "scoopmanifest",
+    "body": [
+      "{",
+      "    \"version\": \"${1:1.0.0}\",",
+      "    \"description\": \"${2:软件描述}\",",
+      "    \"homepage\": \"${3:https://example.com}\",",
+      "    \"license\": \"${4:MIT}\",",
+      "    \"url\": \"${5:https://example.com/download/v$1/app.zip}\",",
+      "    \"hash\": \"\",",
+      "    \"bin\": \"${6:app_executable.exe}\",",
+      "    \"shortcuts\": [",
+      "        [",
+      "            \"${6:app_executable.exe}\",",
+      "            \"App Name\"",
+      "        ]",
+      "    ],",
+      "    \"persist\": [],",
+      "    \"pre_install\": [],",
+      "    \"post_install\": [],",
+      "    \"checkver\": {",
+      "        \"url\": \"${7:https://api.github.com/repos/USER/REPO/releases/latest}\",",
+      "        \"regex\": \"${8:(?sm)browser_download_url.*?releases/download/v([\\\\\\d.]+)/(?<file>([\\\\\\d.]+).zip)}\"",
+      "    },",
+      "    \"autoupdate\": {",
+      "        \"url\": \"${9:https://example.com/download/v$1/app.zip}\",",
+      "        \"hash\": {",
+      "            \"mode\": \"github\"",
+      "        }",
+      "    }",
+      "}"
+    ],
+    "description": "创建一个标准的 Scoop 软件清单模板"
+  }
+}

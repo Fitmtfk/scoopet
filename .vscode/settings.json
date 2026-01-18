@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "/*.json" 
+            ],
+            "url": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json"
+        }
+    ]
+}
