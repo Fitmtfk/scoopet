@@ -1,10 +1,10 @@
 {
-    "version": "4.0alpha2r4",
+    "version": "4.0alpha3",
     "description": "PowerShell Script for Identifying/Fixing Issues for HD2 (Windows only) ",
     "homepage": "https://github.com/helldivers2fixes/HellbombScript",
     "license": "MIT",
-    "url": "https://github.com/helldivers2fixes/HellbombScript/releases/download/v4.0alpha2r4/Hellbomb_Script_v4.0-signed.exe#dl.exe_",
-    "hash": "b0c57ee0539884a17667ce2d5b0fdb28755185135ac160df96d57194579fe80f",
+    "url": "https://github.com/helldivers2fixes/HellbombScript/releases/download/v4.0alpha3/Hellbomb_Script_v4.0-signed.exe#dl.exe_",
+    "hash": "ca3fda790882760d8363d9d7a1aa31d18f5b98e9e62a71e4a908f3be6541705d",
     "shortcuts": [
         [
             "Hellbomb.Script.exe",
