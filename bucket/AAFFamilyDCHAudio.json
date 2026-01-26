@@ -17,6 +17,9 @@
         "regex": "(?sm)browser_download_url.*?releases/download/([\\d.]+)/(?<file>AAFFamilyDCHAudioPack([^\",\\s]+).7z)"
     },
     "autoupdate": {
-        "url": "https://github.com/AAFOptimus/AAFFamilyDCHAudio/releases/download/$version/$matchFile"
+        "url": "https://github.com/AAFOptimus/AAFFamilyDCHAudio/releases/download/$version/$matchFile",
+        "hash": {
+            "mode": "github"
+        }
     }
 }

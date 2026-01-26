@@ -32,10 +32,16 @@
     "autoupdate": {
         "architecture": {
             "32bit": {
-                "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v$version/PeerBanHelper_Windows_$version_Portable.zip"
+                "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v$version/PeerBanHelper_Windows_$version_Portable.zip",
+                "hash": {
+                    "mode": "github"
+                }
             },
             "64bit": {
-                "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v$version/PeerBanHelper_Windows_$version_Portable.zip"
+                "url": "https://github.com/PBH-BTN/PeerBanHelper/releases/download/v$version/PeerBanHelper_Windows_$version_Portable.zip",
+                "hash": {
+                    "mode": "github"
+                }
             }
         }
     }

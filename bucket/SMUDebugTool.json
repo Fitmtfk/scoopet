@@ -21,6 +21,9 @@
         "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>SMUDebugTool_v[^\",\\s]+\\.zip)"
     },
     "autoupdate": {
-        "url": "https://github.com/irusanov/SMUDebugTool/releases/download/v$version/$matchFile"
+        "url": "https://github.com/irusanov/SMUDebugTool/releases/download/v$version/$matchFile",
+        "hash": {
+            "mode": "github"
+        }
     }
 }

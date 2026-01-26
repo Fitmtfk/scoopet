@@ -28,6 +28,9 @@
         "regex": "(?sm)browser_download_url.*?releases/download/([\\d.]+)/(?<file>HEU_KMS_Activator_v[\\d.]+.rar)"
     },
     "autoupdate": {
-        "url": "https://ghfast.top/https://github.com/zbezj/HEU_KMS_Activator/releases/download/$version/$matchFile"
+        "url": "https://github.com/zbezj/HEU_KMS_Activator/releases/download/$version/$matchFile",
+        "hash": {
+            "mode": "github"
+        }
     }
 }

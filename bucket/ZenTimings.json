@@ -20,6 +20,9 @@
         "regex": "(?sm)browser_download_url.*?releases/download/v([^\\/]+)/(?<file>ZenTimings.*?\\.zip)"
     },
     "autoupdate": {
-        "url": "https://github.com/irusanov/ZenTimings/releases/download/v$version/$matchFile"
+        "url": "https://github.com/irusanov/ZenTimings/releases/download/v$version/$matchFile",
+        "hash": {
+            "mode": "github"
+        }
     }
 }

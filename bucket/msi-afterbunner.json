@@ -52,6 +52,9 @@
         "replace": "${v}-${beta}-Build${bs}${bb}"
     },
     "autoupdate": {
-        "url": "https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D]-MSIAfterburnerSetup$cleanVersion.zip"
+        "url": "https://ftp.nluug.nl/pub/games/PC/guru3d/afterburner/[Guru3D]-MSIAfterburnerSetup$cleanVersion.zip",
+        "hash": {
+            "mode": "github"
+        }
     }
 }
