@@ -14,6 +14,14 @@
     "pre_install": [
         "if (!(Test-Path \"$persist_dir\\typer.cfg\")) {",
         "   New-Item \"$dir\\typer.cfg\" -Type File | Out-Null",
+        "   Set-Content \"$dir\\typer.cfg\" '[Config]'",
+        "   Add-Content \"$dir\\typer.cfg\" '激活快捷键 = Return'",
+        "   Add-Content \"$dir\\typer.cfg\" '发送快捷键 = Return'",
+        "   Add-Content \"$dir\\typer.cfg\" '翻译快捷键 = Alt-Return'",
+        "   Add-Content \"$dir\\typer.cfg\" '翻译源 = Baidu'",
+        "   Add-Content \"$dir\\typer.cfg\" '使用的游戏 = HELLDIVERS™ 2'",
+        "   Add-Content \"$dir\\typer.cfg\" '端口 = 6800'",
+        "   Add-Content \"$dir\\typer.cfg\" ''",
         "}"
     ],
     "checkver": {
