@@ -1,0 +1,29 @@
+{
+    "version": "4.1",
+    "homepage": "https://github.com/Jeffrey131313/paster",
+    "url": "https://github.com/Jeffrey131313/paster/releases/download/4.1/typerPC.exe",
+    "hash": "ffca883e547dc09a46eae5820c32cb5d67f03806db73209f94d93a50f75f7099",
+    "bin": " typerPC.exe ",
+    "shortcuts": [
+        [
+            " typerPC.exe ",
+            " typerPC"
+        ]
+    ],
+    "persist": "typer.cfg",
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\typer.cfg\")) {",
+        "   New-Item \"$dir\\typer.cfg\" -Type File | Out-Null",
+        "}"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/Jeffrey131313/paster/releases",
+        "regex": "(?sm)browser_download_url.*?releases/download/([\\d.]+)/(?<file>typerPC.exe)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/Jeffrey131313/paster/releases/download/$version/typerPC.exe",
+        "hash": {
+            "mode": "github"
+        }
+    }
+}
