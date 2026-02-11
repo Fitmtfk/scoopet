@@ -3,11 +3,11 @@
     "homepage": "https://github.com/Jeffrey131313/paster",
     "url": "https://github.com/Jeffrey131313/paster/releases/download/4.1/typerPC.exe",
     "hash": "ffca883e547dc09a46eae5820c32cb5d67f03806db73209f94d93a50f75f7099",
-    "bin": " typerPC.exe ",
+    "bin": "typerPC.exe",
     "shortcuts": [
         [
-            " typerPC.exe ",
-            " typerPC"
+            "typerPC.exe",
+            "typerPC"
         ]
     ],
     "persist": "typer.cfg",
