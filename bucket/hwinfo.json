@@ -1,0 +1,61 @@
+{
+    "version": "8.40-5900",
+    "description": "Comprehensive Hardware Analysis, Monitoring and Reporting for Windows and DOS.",
+    "homepage": "https://www.hwinfo.com",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.hwinfo.com/licenses/"
+    },
+    "url": "https://www.sac.sk/download/utildiag/hwi_840.zip",
+    "hash": "c06212d303dfe49f454620321e0ae54eea2557b78a2515aa940a51d67365863c",
+    "pre_install": [
+        "Get-ChildItem -Path $dir -Include '*32*', '*ARM*' -Recurse -File | Remove-Item -Force -ErrorAction SilentlyContinue",
+        "[byte[]]$bytes = 64,101,99,104,111,32,111,102,102,13,10,110,101,116,32,115,101,115,115,105,111,110,32,62,110,117,108,32,50,62,38,49,32,124,124,32,112,111,119,101,114,115,104,101,108,108,32,45,78,111,80,32,45,67,32,34,83,116,97,114,116,45,80,114,111,99,101,115,115,32,45,70,105,108,101,80,97,116,104,32,39,37,126,102,48,39,32,45,86,101,114,98,32,82,117,110,65,115,34,32,38,38,32,101,120,105,116,13,10,99,100,32,47,100,32,34,37,126,100,112,48,34,13,10,115,116,97,114,116,32,72,87,105,78,70,79,46,101,120,101",
+        "[System.IO.File]::WriteAllBytes(\"$dir\\hwinfo.bat\", $bytes)",
+        "$taskName = \"StartHWiNFO\"",
+        "$action = New-ScheduledTaskAction -Execute \"$dir\\hwinfo.bat\" -WorkingDirectory $dir",
+        "$trigger = New-ScheduledTaskTrigger -AtLogOn",
+        "$principal = New-ScheduledTaskPrincipal -GroupId \"Users\" -RunLevel Highest",
+        "if (Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue) { Unregister-ScheduledTask -TaskName $taskName -Confirm:$false }",
+        "Register-ScheduledTask -TaskName $taskName -Action $action -Trigger $trigger -Principal $principal"
+    ],
+    "bin": [
+        [
+            "HWiNFO64.exe",
+            "HWiNFO"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "HWiNFO64.exe",
+            "HWiNFO"
+        ]
+    ],
+    "installer": {
+        "script": [
+            "ensure $persist_dir | Out-Null",
+            "Get-ChildItem -Path $persist_dir -Include '*64_KEY.txt' -Recurse -File | Copy-Item -Destination $dir -Force",
+            "$setting_name = if ($architecture -match '\\d{2}(?=bit)') { 'HWiNFO{0}.INI' -f $matches[0] } else { 'HWiNFO_ARM64.INI' }",
+            "if (-not (Test-Path -Path \"$persist_dir\\$setting_name\" -PathType Leaf)) {",
+            "    $cfg = @('[Settings]', 'AutoUpdate=0', 'AutoUpdateBetaDisable=1')",
+            "    Set-Content -Path \"$dir\\$setting_name\" -Value $cfg -Encoding ascii",
+            "}",
+            "persist_data @{ persist = $setting_name } $original_dir $persist_dir",
+            "persist_permission @{ persist = $setting_name } $global"
+        ]
+    },
+    "pre_uninstall": "Get-ChildItem -Path $dir -Filter '*64_KEY.txt' -File | Copy-Item -Destination $persist_dir -Force",
+    "uninstaller": {
+        "script": [
+            "$setting_name = if ($architecture -match '\\d{2}(?=bit)') { 'HWiNFO{0}.INI' -f $matches[0] } else { 'HWiNFO_ARM64.INI' }",
+            "unlink_persist_data @{ persist = $setting_name } $dir"
+        ]
+    },
+    "checkver": {
+        "url": "https://www.hwinfo.com/ver.txt",
+        "regex": "([\\d.-]+)"
+    },
+    "autoupdate": {
+        "url": "https://www.sac.sk/download/utildiag/hwi_$majorVersion$minorVersion.zip"
+    }
+}
