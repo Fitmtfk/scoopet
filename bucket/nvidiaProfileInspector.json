@@ -1,0 +1,25 @@
+{
+    "version": "2.4.0.34",
+    "description": "NVIDIA Profile Inspector",
+    "homepage": "https://github.com/Orbmu2k/nvidiaProfileInspector",
+    "license": "MIT",
+    "url": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/2.4.0.34/nvidiaProfileInspector.zip",
+    "hash": "7ef9dd7f3ed8f4c6689c32728be483108824fc56698f287c6af63a07d80abd93",
+    "bin": "nvidiaProfileInspector.exe",
+    "shortcuts": [
+        [
+            "nvidiaProfileInspector.exe",
+            "nvidiaProfileInspector"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/Orbmu2k/nvidiaProfileInspector/releases",
+        "regex": "(?sm)browser_download_url.*?releases/download/([\\d.]+)/(?<file>nvidiaProfileInspector.zip)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/$version/$matchFile",
+        "hash": {
+            "mode": "github"
+        }
+    }
+}
