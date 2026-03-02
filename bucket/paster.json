@@ -1,8 +1,8 @@
 {
-    "version": "4.1",
+    "version": "4.2",
     "homepage": "https://github.com/Jeffrey131313/paster",
-    "url": "https://github.com/Jeffrey131313/paster/releases/download/4.1/typerPC.exe",
-    "hash": "ffca883e547dc09a46eae5820c32cb5d67f03806db73209f94d93a50f75f7099",
+    "url": "https://github.com/Jeffrey131313/paster/releases/download/4.2/typerPC.exe",
+    "hash": "7b462ce439555edb7953a6f984798057de71f7bbb9678c0230cfaa1f41f51f7a",
     "bin": "typerPC.exe",
     "shortcuts": [
         [
