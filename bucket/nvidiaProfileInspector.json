@@ -14,10 +14,10 @@
     ],
     "checkver": {
         "url": "https://api.github.com/repos/Orbmu2k/nvidiaProfileInspector/releases",
-        "regex": "(?sm)browser_download_url.*?releases/download/([\\d.]+)/(?<file>nvidiaProfileInspector.zip)"
+        "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>nvidiaProfileInspector.zip)"
     },
     "autoupdate": {
-        "url": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/$version/$matchFile",
+        "url": "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/v$version/$matchFile",
         "hash": {
             "mode": "github"
         }
