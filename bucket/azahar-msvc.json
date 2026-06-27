@@ -35,8 +35,8 @@
         "github": "https://github.com/azahar-emu/azahar"
     },
     "autoupdate": {
-        "url": "https://github.com/azahar-emu/azahar/releases/download/$version/azahar-$version-windows-msvc.zip",
-        "extract_dir": "azahar-$version-windows-msvc",
+        "url": "https://github.com/azahar-emu/azahar/releases/download/$version/azahar-windows-msvc-$version.zip",
+        "extract_dir": "azahar-windows-msvc-$version",
         "hash": {
             "mode": "github"
         }
