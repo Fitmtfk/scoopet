@@ -1,10 +1,10 @@
 {
-    "version": "2026.06.28",
+    "version": "2026.07.05",
     "description": "Unofficial revival of the well known .NET debugger and assembly editor, dnSpy",
     "homepage": "https://github.com/dnSpyEx/dnSpy",
     "license": "GPL",
-    "url": "https://github.com/Fitmtfk/dnSpyEx-Nightly/releases/download/2026.06.28/dnSpyEx-net-x64.zip",
-    "hash": "4dbdef179bd07d61f5988dd9f6df759714c1ee5f3b223fb434fa369d2ab5b4d0",
+    "url": "https://github.com/Fitmtfk/dnSpyEx-Nightly/releases/download/2026.07.05/dnSpyEx-net-x64.zip",
+    "hash": "07b0f2b22823c05efc541e7a76c3543642d48e3428e343e372aec5f45936368d",
     "shortcuts": [
         [
             "dnSpy.exe",
