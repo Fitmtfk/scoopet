@@ -1,0 +1,30 @@
+{
+    "version": "1.7.3",
+    "license": "MIT",
+    "homepage": "https://github.com/kqcoxn/MaaPipelineEditor",
+    "depends": "MaaFramework",
+    "url": "https://github.com/kqcoxn/MaaPipelineEditor/releases/download/v1.7.3/mpelb-windows-amd64.exe",
+    "hash": "68cfb4aed1e35f9907ae6157f256ef3c76d0270ee2d6abfaf050941628e49754",
+    "pre_install": [
+        "Rename-Item \"$dir\\mpelb-windows-amd64.exe\" \"mpelb.exe\" -Force",
+        ""
+    ],
+    "post_install": [
+        "Write-Host `n\"Init runtime.\"",
+        "if (!(Test-Path \"$persist_dir\\runtime\\resource\\model\\ocr\")) {",
+        "   $dlFile = 'dl.zip'",
+        "   Invoke-CachedDownload $app ${version}\"_ocr\" \"https://download.maafw.xyz/MaaCommonAssets/OCR/ppocr_v6/ppocr_v6-small.zip\" \"$dir\\$dlFile\"",
+        "   Expand-7zipArchive \"$dir\\$dlfile\" \"$dir\\runtime\\resource\\model\\ocr\" -Removal",
+        "}",
+        "if (!(Test-Path \"$persist_dir\\runtime\\maafw\")) {",
+        "   mklink /J \"$persist_dir\\runtime\\maafw\" $(appdir MaaFramework $global)\\current",
+        "}",
+        "Write-Host \"Finish.\""
+    ],
+    "persist": "runtime",
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/kqcoxn/MaaPipelineEditor/releases/download/v$version/mpelb-windows-amd64.exe"
+    },
+    "bin": "mpelb.exe"
+}
