@@ -1,0 +1,27 @@
+{
+    "version": "0.7.0",
+    "homepage": "https://github.com/cridyy/lol-stats",
+    "license": "MIT",
+    "url": "https://github.com/cridyy/lol-stats/releases/download/v0.7.0/lol-stats_0.7.0_x64-setup.exe",
+    "hash": "eca60557edcae4a5f964d74dfcf66f3bb6bc4a7994c70d2d3382bd76795e4bb8",
+    "pre_install": [
+        "$file=(Get-ChildItem $dir\\\\lol-stats*).Name",
+        "7z x $dir\\\\$file \"lol-stats.exe\" $('-o' + $dir) | Out-Null"
+    ],
+    "shortcuts": [
+        [
+            "lol-stats.exe",
+            "lol-stats"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/cridyy/lol-stats/releases",
+        "regex": "(?sm)browser_download_url.*?releases/download/v([\\d.]+)/(?<file>lol-stats_([\\d.]+)_x64-setup.exe)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/cridyy/lol-stats/releases/download/v$version/lol-stats_$version_x64-setup.exe",
+        "hash": {
+            "mode": "github"
+        }
+    }
+}
