@@ -1,13 +1,11 @@
 {
-    "version": "1.7.3",
+    "version": "1.7.4",
     "license": "MIT",
     "homepage": "https://github.com/kqcoxn/MaaPipelineEditor",
     "depends": "MaaFramework",
-    "url": "https://github.com/kqcoxn/MaaPipelineEditor/releases/download/v1.7.3/mpelb-windows-amd64.exe",
-    "hash": "68cfb4aed1e35f9907ae6157f256ef3c76d0270ee2d6abfaf050941628e49754",
-    "pre_install": [
-        "Rename-Item \"$dir\\mpelb-windows-amd64.exe\" \"mpelb.exe\" -Force"
-    ],
+    "url": "https://github.com/kqcoxn/MaaPipelineEditor/releases/download/v1.7.4/mpelb-windows-amd64.exe",
+    "hash": "6738391059138be13e8bbc4829121918975e5052c2fbbe5f45c9ebad96a86859",
+    "pre_install": "Rename-Item \"$dir\\mpelb-windows-amd64.exe\" \"mpelb.exe\" -Force",
     "post_install": [
         "Write-Host `n\"Init runtime.\"",
         "if (!(Test-Path \"$persist_dir\\runtime\\resource\\model\\ocr\")) {",
