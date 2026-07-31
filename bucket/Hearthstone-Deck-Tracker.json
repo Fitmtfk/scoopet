@@ -1,16 +1,16 @@
 {
-    "version": "1.53.15",
+    "version": "1.54.1",
     "description": "A deck tracker and deck manager for Hearthstone on Windows ",
     "homepage": "https://github.com/HearthSim/Hearthstone-Deck-Tracker",
     "architecture": {
         "32bit": {
-            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.53.15/Hearthstone.Deck.Tracker-v1.53.15.zip",
-            "hash": "f36163ef85f4076ec001acc854973bb0f1f61227fb0f2ad0f5c2e546b56ec838",
+            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.54.1/Hearthstone.Deck.Tracker-v1.54.1.zip",
+            "hash": "72c3b96aab752371682aece7bfd4def9f9a28237a271e5c97436068bcd1fa3d5",
             "extract_dir": "Hearthstone Deck Tracker"
         },
         "64bit": {
-            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.53.15/Hearthstone.Deck.Tracker-v1.53.15.zip",
-            "hash": "f36163ef85f4076ec001acc854973bb0f1f61227fb0f2ad0f5c2e546b56ec838",
+            "url": "https://github.com/HearthSim/Hearthstone-Deck-Tracker/releases/download/v1.54.1/Hearthstone.Deck.Tracker-v1.54.1.zip",
+            "hash": "72c3b96aab752371682aece7bfd4def9f9a28237a271e5c97436068bcd1fa3d5",
             "extract_dir": "Hearthstone Deck Tracker"
         }
     },
