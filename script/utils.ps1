@@ -1,14 +1,12 @@
 # 检测 PowerShell 版本，要求 PS7+
 if ($PSVersionTable.PSVersion.Major -lt 7) {
-    Write-Error "此脚本需要 PowerShell 7 或更高版本，当前版本: $($PSVersionTable.PSVersion.ToString())"
-    Write-Error "请从 https://aka.ms/powershell 下载并安装 PowerShell 7"
-    Write-Error "相关功能未成功执行"
-    # 定义空函数，避免调用方报错
-    function Update-ScoopTrayIconPath { }
-    return
+    Write-Error "This script requires PowerShell 7 or higher, current version: $($PSVersionTable.PSVersion.ToString())"
+    Write-Error "Please download and install PowerShell 7 from https://aka.ms/powershell"
+    Write-Error "Related functionality was not executed"
+    exit 1
 }
 
-# --- GUID 已知文件夹路径解析 ---
+# --- GUID Known Folder Path Resolution ---
 function Resolve-KnownFolder {
     [CmdletBinding()]
     param (
@@ -58,7 +56,7 @@ function Resolve-KnownFolder {
     }
 }
 
-# --- ROT13 编解码 ---
+# --- ROT13 Encoding/Decoding ---
 function Convert-CASHybridText {
     param ([string]$InputString)
     if ([string]::IsNullOrEmpty($InputString)) { return "" }
@@ -71,11 +69,62 @@ function Convert-CASHybridText {
     return -join $chars
 }
 
+# --- Execute tray icon path fix (wrapped in function for PS5 compatibility) ---
+function Do-FixTrayIcon {
+    param (
+        [string]$regPath,
+        [byte[]]$raw,
+        [string]$AppName,
+        [string]$NewVersion,
+        [int]$entrySize,
+        [int]$pathLimit,
+        [switch]$RestartExplorer
+    )
+
+    $modifiedCount = 0
+    $escapedAppName = [regex]::Escape($AppName)
+    $pattern = "(?i)apps\\$escapedAppName\\(?<oldVer>[^\\]+)\\"
+
+    for ($offset = 20; $offset + $entrySize -le $raw.Length; $offset += $entrySize) {
+        $pathSegment = $raw[$offset..($offset + $pathLimit - 1)]
+        $pathDecoded = [System.Text.Encoding]::Unicode.GetString($pathSegment).Split("`0")[0]
+        $pathDecoded = Convert-CASHybridText $pathDecoded
+        $resolvedPath = Resolve-KnownFolder $pathDecoded
+
+        if ($resolvedPath -match $pattern) {
+            $oldVer = $Matches['oldVer']
+            if ($oldVer -ne $NewVersion) {
+                $newPath = $resolvedPath.Replace($oldVer, $NewVersion)
+                $encodedPath = Convert-CASHybridText $newPath
+                $newPathBytes = [System.Text.Encoding]::Unicode.GetBytes($encodedPath)
+
+                for ($i = 0; $i -lt $pathLimit; $i++) {
+                    if ($i -lt $newPathBytes.Length) {
+                        $raw[$offset + $i] = $newPathBytes[$i]
+                    } else {
+                        $raw[$offset + $i] = 0
+                    }
+                }
+
+                Write-Host "[Scoop Fix] ${AppName}: ${oldVer} -> ${NewVersion}" -ForegroundColor Green
+                $modifiedCount++
+            }
+        }
+    }
+
+    if ($modifiedCount -gt 0) {
+        Set-ItemProperty -Path $regPath -Name IconStreams -Value $raw
+        if ($RestartExplorer) { Stop-Process -Name explorer -Force }
+    }
+
+    return $modifiedCount
+}
+
 function Update-ScoopTrayIconPath {
     <#
     .DESCRIPTION
-        专为 Scoop 软件设计的托盘路径修复函数。
-        自动匹配路径模式: ...\apps\<AppName>\<OldVersion>\<ExeName>
+        Tray icon path fix function designed for Scoop software.
+        Auto-matches path pattern: ...\apps\<AppName>\<OldVersion>\<ExeName>
     #>
     param (
         [Parameter(Mandatory=$true)]
@@ -91,68 +140,20 @@ function Update-ScoopTrayIconPath {
     process {
         $regPath = "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotSIB"
         
-        # 检测 TrayNotSIB 注册表是否存在（由 stratallback 任务栏优化软件创建）
+        # Check if TrayNotSIB registry exists (created by stratallback taskbar optimization software)
         if (-not (Test-Path $regPath)) {
-            Write-Host "无需更新托盘图标路径：未找到 TrayNotSIB 注册表"
+            Write-Host "No need to update tray icon path: TrayNotSIB registry not found"
             return
         }
 
         $entrySize = 1640
         $pathLimit = 520
 
-        try {
-            $val = Get-ItemProperty -Path $regPath -Name IconStreams -ErrorAction Stop
-            [byte[]]$raw = $val.IconStreams
-            $modifiedCount = 0
-
-            # 预编译正则表达式
-            $escapedAppName = [regex]::Escape($AppName)
-            $pattern = "(?i)apps\\$escapedAppName\\(?<oldVer>[^\\]+)\\"
-            $regex = [regex]::new($pattern)
-
-            # 遍历 1640 字节条目
-            for ($offset = 20; $offset -le $raw.Length - $entrySize; $offset += $entrySize) {
-                
-                # 1. 提取并解密路径区 (0-519 字节)
-                $pathSegment = $raw[$offset..($offset + $pathLimit - 1)]
-                $pathDecoded = [System.Text.Encoding]::Unicode.GetString($pathSegment).Split("`0")[0]
-                $pathDecoded = Convert-CASHybridText $pathDecoded
-
-                # 解析 GUID 已知文件夹路径
-                $resolvedPath = Resolve-KnownFolder $pathDecoded
-
-                # 2. 使用预编译正则匹配
-                if ($regex.Match($resolvedPath) -match $pattern) {
-                    $oldVer = $Matches['oldVer']
-                    
-                    # 如果旧版本号与新版本号不同，则执行替换
-                    if ($oldVer -ne $NewVersion) {
-                        $newPath = $resolvedPath.Replace($oldVer, $NewVersion)
-                        $encodedPath = Convert-CASHybridText $newPath
-                        $newPathBytes = [System.Text.Encoding]::Unicode.GetBytes($encodedPath)
-
-                        # 3. 逐字节写入路径区，保护 520 偏移后的 Icon UID 等字段
-                        for ($i = 0; $i -lt $pathLimit; $i++) {
-                            if ($i -lt $newPathBytes.Length) {
-                                $raw[$offset + $i] = $newPathBytes[$i]
-                            } else {
-                                $raw[$offset + $i] = 0
-                            }
-                        }
-
-                        Write-Host "[Scoop Fix] ${AppName}: ${oldVer} -> ${NewVersion}" -ForegroundColor Green
-                        $modifiedCount++
-                    }
-                }
-            }
-
-            if ($modifiedCount -gt 0) {
-                Set-ItemProperty -Path $regPath -Name IconStreams -Value $raw
-                if ($RestartExplorer) { Stop-Process -Name explorer -Force }
-            }
+        $val = Get-ItemProperty -Path $regPath -Name IconStreams -ErrorAction SilentlyContinue
+        if (-not $val) {
+            Write-Error "IconStreams registry value not found"
+            return
         }
-        catch {
-            Write-Error "Scoop 路径修复失败: $($_.Exception.Message)"
-        }
+        Do-FixTrayIcon -regPath $regPath -raw $val.IconStreams -AppName $AppName -NewVersion $NewVersion -entrySize $entrySize -pathLimit $pathLimit -RestartExplorer:$RestartExplorer -ErrorAction Stop
     }
 }
