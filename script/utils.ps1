@@ -109,7 +109,7 @@ function Do-FixTrayIcon {
         if ($RestartExplorer) { Stop-Process -Name explorer -Force }
     }
 
-    return $modifiedCount
+    $null = $modifiedCount
 }
 
 function Update-ScoopTrayIconPath {
