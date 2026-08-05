@@ -17,7 +17,7 @@ A Bucket for the Best Windows Package Manager [Scoop](https://github.com/lukesam
 For ones familiar with Scoop:
 
 ```powershell
-scoop bucket add scoopet https://github.com/Fitmtfk/scoopet
+scoop bucket add cas https://github.com/Fitmtfk/cas
 ```
 
 # :running: To Start
