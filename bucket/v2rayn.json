@@ -24,7 +24,8 @@
         "Remove-Item -Path \"$dir\\bin\" -Recurse -Force"
     ],
     "post_install": [
-        ". `$bucketsdir\\`$bucket\\..\\script\\utils.ps1",
+        "if (!$bucket) { `$bucket = 'scoopet' }",
+        ". $bucketsdir\\$bucket\\script\\utils.ps1",
         "Update-ScoopTrayIconPath -AppName 'v2rayN' -NewVersion `$version -RestartExplorer"
     ],
     "bin": "v2rayN.exe",
