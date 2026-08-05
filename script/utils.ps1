@@ -106,7 +106,8 @@ function Update-ScoopTrayIconPath {
             $modifiedCount = 0
 
             # 预编译正则表达式
-            $pattern = "(?i)apps\\$([regex]::Escape($AppName))\\(?<oldVer>[^\\]+)\\"
+            $escapedAppName = [regex]::Escape($AppName)
+            $pattern = "(?i)apps\\$escapedAppName\\(?<oldVer>[^\\]+)\\"
             $regex = [regex]::new($pattern)
 
             # 遍历 1640 字节条目
