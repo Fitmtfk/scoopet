@@ -139,7 +139,7 @@ function Update-ScoopTrayIconPath {
                             }
                         }
 
-                        Write-Host "[Scoop Fix] $AppName: $oldVer -> $NewVersion" -ForegroundColor Green
+                        Write-Host "[Scoop Fix] ${AppName}: ${oldVer} -> ${NewVersion}" -ForegroundColor Green
                         $modifiedCount++
                     }
                 }
