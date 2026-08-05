@@ -2,7 +2,7 @@
 if ($PSVersionTable.PSVersion.Major -lt 7) {
     Write-Error "此脚本需要 PowerShell 7 或更高版本，当前版本: $($PSVersionTable.PSVersion.ToString())"
     Write-Error "请从 https://aka.ms/powershell 下载并安装 PowerShell 7"
-    
+    Write-Error "相关功能未成功执行"
     # 定义空函数，避免调用方报错
     function Update-ScoopTrayIconPath { }
     return
@@ -88,6 +88,13 @@ function Update-ScoopTrayIconPath {
 
     process {
         $regPath = "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotSIB"
+        
+        # 检测 TrayNotSIB 注册表是否存在（由 stratallback 任务栏优化软件创建）
+        if (-not (Test-Path $regPath)) {
+            Write-Host "无需更新托盘图标路径：未找到 TrayNotSIB 注册表"
+            return
+        }
+
         $entrySize = 1640
         $pathLimit = 520
 
