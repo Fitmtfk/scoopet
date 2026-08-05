@@ -24,8 +24,8 @@
         "Remove-Item -Path \"$dir\\bin\" -Recurse -Force"
     ],
     "post_install": [
-        "Write-Host '[DEBUG] Current directory: $PWD'",
-        "Get-ChildItem -Recurse | Select-Object FullName",
+        "Write-Host '[DEBUG] $dir = ', `"$dir`"",
+        "Get-ChildItem $dir | Select-Object Name",
         "$utilsPath = Join-Path $scriptDir '..\\script\\utils.ps1'",
         "if (Test-Path $utilsPath) { . $utilsPath }",
         "Write-Host ''",
