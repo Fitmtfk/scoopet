@@ -1,11 +1,3 @@
-# 检测 PowerShell 版本，要求 PS7+
-if ($PSVersionTable.PSVersion.Major -lt 7) {
-    Write-Error "This script requires PowerShell 7 or higher, current version: $($PSVersionTable.PSVersion.ToString())"
-    Write-Error "Please download and install PowerShell 7 from https://aka.ms/powershell"
-    Write-Error "Related functionality was not executed"
-    exit 1
-}
-
 # --- GUID Known Folder Path Resolution ---
 function Resolve-KnownFolder {
     [CmdletBinding()]
@@ -138,6 +130,12 @@ function Update-ScoopTrayIconPath {
     )
 
     process {
+        if ($PSVersionTable.PSVersion.Major -lt 7) {
+            Write-Error "This script requires PowerShell 7 or higher, current version: $($PSVersionTable.PSVersion.ToString())"
+            Write-Error "Please download and install PowerShell 7 from https://aka.ms/powershell"
+            return
+        }
+
         $regPath = "HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotSIB"
         
         # Check if TrayNotSIB registry exists (created by stratallback taskbar optimization software)
