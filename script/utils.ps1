@@ -1,3 +1,13 @@
+# 检测 PowerShell 版本，要求 PS7+
+if ($PSVersionTable.PSVersion.Major -lt 7) {
+    Write-Error "此脚本需要 PowerShell 7 或更高版本，当前版本: $($PSVersionTable.PSVersion.ToString())"
+    Write-Error "请从 https://aka.ms/powershell 下载并安装 PowerShell 7"
+    
+    # 定义空函数，避免调用方报错
+    function Update-ScoopTrayIconPath { }
+    return
+}
+
 function Update-ScoopTrayIconPath {
     <#
     .DESCRIPTION
