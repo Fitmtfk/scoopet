@@ -48,12 +48,14 @@ function Resolve-KnownFolder {
         }
     }
 
-    $pathElements = $Path -split '[\\/]'
-    if ($guid = $pathElements[0] -as [Guid]) {
-        $pathElements[0] = [KnownFolder]::GetPath($guid)
-        $Path = [System.IO.Path]::Combine($pathElements)
+    process {
+        $pathElements = $Path -split '[\\/]'
+        if ($guid = $pathElements[0] -as [Guid]) {
+            $pathElements[0] = [KnownFolder]::GetPath($guid)
+            $Path = [System.IO.Path]::Combine($pathElements)
+        }
+        $Path
     }
-    $Path
 }
 
 # --- ROT13 编解码 ---
