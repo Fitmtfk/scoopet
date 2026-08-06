@@ -18,7 +18,6 @@
             "extract_dir": "PeerBanHelper"
         }
     },
-    "bin": "1) 以 GUI 模式启动.bat",
     "shortcuts": [
         [
             "1) 以 GUI 模式启动.bat",

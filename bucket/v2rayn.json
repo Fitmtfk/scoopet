@@ -28,7 +28,6 @@
         ". $bucketsdir\\$bucket\\script\\utils.ps1",
         "Update-ScoopTrayIconPath -AppName 'v2rayN.exe' -NewVersion $version -RestartExplorer"
     ],
-    "bin": "v2rayN.exe",
     "shortcuts": [
         [
             "v2rayN.exe",

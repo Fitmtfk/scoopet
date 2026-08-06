@@ -27,7 +27,6 @@
         "Expand-7zipArchive \"$dir\\$dlfile\" \"$dir\" -Removal",
         "Write-Host \"Language pack installed.\""
     ],
-    "bin": "visualboyadvance-m.exe",
     "shortcuts": [
         [
             "visualboyadvance-m.exe",

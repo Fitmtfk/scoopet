@@ -5,7 +5,6 @@
     "license": "Freeware",
     "url": "https://github.com/AAFOptimus/AAFFamilyDCHAudio/releases/download/11.10.10010.1/AAFFamilyDCHAudioPack_10010_Build_July_18th_2026.7z",
     "hash": "420bfe4e36bcce87c6acfcc1f83ae13149ab0cd8ce9c3c15b3aa77b33fe8fb38",
-    "bin": "Setup.exe",
     "shortcuts": [
         [
             "Setup.exe",

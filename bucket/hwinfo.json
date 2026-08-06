@@ -9,12 +9,6 @@
     "url": "https://www.sac.sk/download/utildiag/hwi_850.zip",
     "hash": "0e4fbb188f77b815f868fd434c6939166640f0c3257e959bb7086add366c1189",
     "pre_install": "Get-ChildItem -Path $dir -Include '*32*', '*ARM*' -Recurse -File | Remove-Item -Force -ErrorAction SilentlyContinue",
-    "bin": [
-        [
-            "HWiNFO64.exe",
-            "HWiNFO"
-        ]
-    ],
     "shortcuts": [
         [
             "HWiNFO64.exe",

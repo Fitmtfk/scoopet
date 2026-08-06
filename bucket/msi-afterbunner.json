@@ -36,7 +36,6 @@
         "    Remove-Item \"$persist_dir\\AB_Profiles\" -Recurse",
         "}"
     ],
-    "bin": "MSIAfterburner.exe",
     "shortcuts": [
         [
             "MSIAfterburner.exe",

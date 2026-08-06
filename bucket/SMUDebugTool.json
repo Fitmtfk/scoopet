@@ -8,7 +8,6 @@
     },
     "url": "https://github.com/irusanov/SMUDebugTool/releases/download/v1.41/SMUDebugTool_v1.41_cs_test_20260722.zip",
     "hash": "b55101d7bcc6670bb07cc06b7e7a90bb8c0563c50efb3ff0166e53e56f839023",
-    "bin": "SMUDebugTool.exe",
     "shortcuts": [
         [
             "SMUDebugTool.exe",

@@ -16,7 +16,6 @@
         "7z x $dir\\\\$zip -p'HEU168' $('-o' + $dir) | Out-Null",
         "Rename-Item \"$dir\\HEU_KMS_Activator_*.exe\" \"HEU_KMS_Activator.exe\" -Force"
     ],
-    "bin": "HEU_KMS_Activator.exe",
     "shortcuts": [
         [
             "HEU_KMS_Activator.exe",
