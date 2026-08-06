@@ -49,7 +49,7 @@ function Resolve-KnownFolder {
 }
 
 # --- ROT13 Encoding/Decoding ---
-function Convert-CASHybridText {
+function Convert-HybridText {
     param ([string]$InputString)
     if ([string]::IsNullOrEmpty($InputString)) { return "" }
     $chars = $InputString.ToCharArray()
@@ -62,7 +62,7 @@ function Convert-CASHybridText {
 }
 
 # --- Execute tray icon path fix (wrapped in function for PS5 compatibility) ---
-function Do-FixTrayIcon {
+function FixTrayIcon {
     param (
         [string]$regPath,
         [byte[]]$raw,
@@ -80,14 +80,14 @@ function Do-FixTrayIcon {
     for ($offset = 20; $offset + $entrySize -le $raw.Length; $offset += $entrySize) {
         $pathSegment = $raw[$offset..($offset + $pathLimit - 1)]
         $pathDecoded = [System.Text.Encoding]::Unicode.GetString($pathSegment).Split("`0")[0]
-        $pathDecoded = Convert-CASHybridText $pathDecoded
+        $pathDecoded = Convert-HybridText $pathDecoded
         $resolvedPath = Resolve-KnownFolder $pathDecoded
 
         if ($resolvedPath -match $pattern) {
             $oldVer = $Matches['oldVer']
             if ($oldVer -ne $NewVersion) {
                 $newPath = $resolvedPath.Replace($oldVer, $NewVersion)
-                $encodedPath = Convert-CASHybridText $newPath
+                $encodedPath = Convert-HybridText $newPath
                 $newPathBytes = [System.Text.Encoding]::Unicode.GetBytes($encodedPath)
 
                 for ($i = 0; $i -lt $pathLimit; $i++) {
@@ -108,8 +108,6 @@ function Do-FixTrayIcon {
         Set-ItemProperty -Path $regPath -Name IconStreams -Value $raw
         if ($RestartExplorer) { Stop-Process -Name explorer -Force }
     }
-
-    $null = $modifiedCount
 }
 
 function Update-ScoopTrayIconPath {
@@ -146,6 +144,7 @@ function Update-ScoopTrayIconPath {
             Write-Error "IconStreams registry value not found"
             return
         }
-        Do-FixTrayIcon -regPath $regPath -raw $val.IconStreams -AppName $AppName -NewVersion $NewVersion -entrySize $entrySize -pathLimit $pathLimit -RestartExplorer:$RestartExplorer -ErrorAction Stop
+        FixTrayIcon -regPath $regPath -raw $val.IconStreams -AppName $AppName -NewVersion $NewVersion -entrySize $entrySize -pathLimit $pathLimit -RestartExplorer:$RestartExplorer -ErrorAction Stop
     }
 }
+Write-Host ""
