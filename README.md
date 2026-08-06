@@ -1,9 +1,9 @@
-# 🍨 Scoopet 🍨
+# 🍨 CAS 🍨
 
-[![Excavator](https://github.com/Fitmtfk/scoopet/actions/workflows/schedule.yml/badge.svg)](https://github.com/Fitmtfk/scoopet/actions/workflows/schedule.yml)
-[![license](https://img.shields.io/github/license/Fitmtfk/scoopet)](https://github.com/Fitmtfk/scoopet/blob/master/LICENSE)
-[![code size](https://img.shields.io/github/languages/code-size/Fitmtfk/scoopet.svg)](https://img.shields.io/github/languages/code-size/Fitmtfk/scoopet.svg)
-[![repo size](https://img.shields.io/github/repo-size/Fitmtfk/scoopet.svg)](https://img.shields.io/github/repo-size/Fitmtfk/scoopet.svg)
+[![Excavator](https://github.com/Fitmtfk/cas/actions/workflows/schedule.yml/badge.svg)](https://github.com/Fitmtfk/cas/actions/workflows/schedule.yml)
+[![license](https://img.shields.io/github/license/Fitmtfk/cas)](https://github.com/Fitmtfk/cas/blob/master/LICENSE)
+[![code size](https://img.shields.io/github/languages/code-size/Fitmtfk/cas.svg)](https://img.shields.io/github/languages/code-size/Fitmtfk/cas.svg)
+[![repo size](https://img.shields.io/github/repo-size/Fitmtfk/cas.svg)](https://img.shields.io/github/repo-size/Fitmtfk/cas.svg)
 
 A Bucket for the Best Windows Package Manager [Scoop](https://github.com/lukesampson/scoop): Continuously Assisting in Academic Research.
 
@@ -17,7 +17,7 @@ A Bucket for the Best Windows Package Manager [Scoop](https://github.com/lukesam
 For ones familiar with Scoop:
 
 ```powershell
-scoop bucket add scoopet https://github.com/Fitmtfk/scoopet
+scoop bucket add cas https://github.com/Fitmtfk/cas
 ```
 
 # :running: To Start
@@ -68,7 +68,7 @@ scoop config aria2-enabled false
 ### :airplane: Step 3: Add this wonderful bucket and update, mo-mo-da~ :kiss:
 
 ```powershell
-scoop bucket add scoopet https://github.com/Fitmtfk/scoopet
+scoop bucket add cas https://github.com/Fitmtfk/cas
 scoop update
 ```
 
